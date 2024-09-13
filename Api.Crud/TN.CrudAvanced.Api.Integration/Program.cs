@@ -1,5 +1,6 @@
 using FluentValidation;
 using MediatR;
+using Microsoft.ApplicationInsights;
 using Microsoft.AspNetCore.Diagnostics;
 using System.Reflection;
 using TN.CrudAdvanced.Domain.Interfaces.Repositories;
@@ -8,6 +9,8 @@ using TN.CrudAdvanced.Infrastructure.Repositories;
 using TN.CrudAvanced.Api.Integration.Extension;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddSingleton<TelemetryClient>();
+
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAllProductsQueryHandler).Assembly));
 
