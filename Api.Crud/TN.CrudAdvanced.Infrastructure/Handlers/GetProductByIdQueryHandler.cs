@@ -10,16 +10,16 @@ using TN.CrudAdvanced.Infrastructure.Queries;
 
 namespace TN.CrudAdvanced.Infrastructure.Handlers
 {
-    public class GetProductByIdQueryHandler : IRequestHandler<GetProductByIdQuery, Product>
+    public class GetPersonByIdQueryHandler : IRequestHandler<GetPersonByIdQuery, Person>
 {
-    private readonly IProductRepository _repository;
+    private readonly IPersonRepository _repository;
 
-    public GetProductByIdQueryHandler(IProductRepository repository)
+    public GetPersonByIdQueryHandler(IPersonRepository repository)
     {
         _repository = repository;
     }
 
-    public async Task<Product> Handle(GetProductByIdQuery request, CancellationToken cancellationToken)
+    public async Task<Person> Handle(GetPersonByIdQuery request, CancellationToken cancellationToken)
     {
         // Busca o produto pelo ID no repositório
         var product = await _repository.GetByIdAsync(request.Id);

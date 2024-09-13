@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace TN.CrudAdvanced.Infrastructure.Command
 {
-    public class DeleteProductCommand : IRequest<Unit>
-{
-    public Guid Id { get; set; }
-}
+    public class DeletePersonCommand : IRequest<Unit>
+    {
+        public Guid Id { get; set; }
+    }
 
 }

@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TN.CrudAdvanced.Infrastruct
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TN.CrudAdvanced.Domain.Shared", "..\TN.CrudAdvanced.Domain.Shared\TN.CrudAdvanced.Domain.Shared.csproj", "{358FF542-069C-4309-970F-425770343385}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TN.CrudAdvanced.Api.Cep", "..\TN.CrudAdvanced.Api.Cep\TN.CrudAdvanced.Api.Cep.csproj", "{48552469-4447-46DD-9E17-35C9DF2DE686}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{358FF542-069C-4309-970F-425770343385}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{358FF542-069C-4309-970F-425770343385}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{358FF542-069C-4309-970F-425770343385}.Release|Any CPU.Build.0 = Release|Any CPU
+		{48552469-4447-46DD-9E17-35C9DF2DE686}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{48552469-4447-46DD-9E17-35C9DF2DE686}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{48552469-4447-46DD-9E17-35C9DF2DE686}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{48552469-4447-46DD-9E17-35C9DF2DE686}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -48,6 +54,7 @@ Global
 		{92079958-7F33-42EF-84F0-6A79661A7FE3} = {DA19BC0F-BD26-421A-B943-C83E59743A02}
 		{B478B7E8-5FC5-482D-BEB0-0DFF0E7941F1} = {DA19BC0F-BD26-421A-B943-C83E59743A02}
 		{358FF542-069C-4309-970F-425770343385} = {DA19BC0F-BD26-421A-B943-C83E59743A02}
+		{48552469-4447-46DD-9E17-35C9DF2DE686} = {342AC789-96E1-47DD-8C16-4897E6F83C5D}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {718768E9-93CC-48A5-9432-742637FEAF7B}

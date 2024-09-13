@@ -11,12 +11,20 @@ using TN.CrudAvanced.Api.Integration.Extension;
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddSingleton<TelemetryClient>();
 
-
-builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAllProductsQueryHandler).Assembly));
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", policy =>
+    {
+        policy.AllowAnyOrigin()
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAllPersonsQueryHandler).Assembly));
 
 builder.Services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
 
-builder.Services.AddSingleton<IProductRepository, InMemoryProductRepository>();
+builder.Services.AddSingleton<IPersonRepository, InMemoryPersonRepository>();
 
 builder.Services.AddControllers();
 
@@ -32,6 +40,7 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.UseCors("AllowAll");
 app.UseAuthorization();
 app.MapControllers();
 

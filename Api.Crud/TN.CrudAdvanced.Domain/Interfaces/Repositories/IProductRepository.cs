@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TN.CrudAdvanced.Domain.Entities;
+﻿using TN.CrudAdvanced.Domain.Entities;
 
 namespace TN.CrudAdvanced.Domain.Interfaces.Repositories
 {
-    public interface IProductRepository
+    public interface IPersonRepository
     {
-        Task<Product> GetByIdAsync(Guid id);
-        Task<IEnumerable<Product>> GetAllAsync();
-        Task AddAsync(Product product);
-        Task UpdateAsync(Product product);
+        Task<Person> GetByIdAsync(Guid id);
+        Task<IEnumerable<Person>> GetAllAsync();
+        Task AddAsync(Person person);
+        Task UpdateAsync(Person person);
         Task DeleteAsync(Guid id);
     }
 }

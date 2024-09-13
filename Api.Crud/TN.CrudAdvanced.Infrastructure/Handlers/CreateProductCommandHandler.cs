@@ -10,22 +10,34 @@ using TN.CrudAdvanced.Infrastructure.Command;
 
 namespace TN.CrudAdvanced.Infrastructure.Handlers
 {
-    public class CreateProductCommandHandler : IRequestHandler<CreateProductCommand, Guid>
+    public class CreatePersonCommandHandler : IRequestHandler<CreatePersonCommand, Guid>
     {
-        private readonly IProductRepository _repository;
+        private readonly IPersonRepository _repository;
 
-        public CreateProductCommandHandler(IProductRepository repository)
+        public CreatePersonCommandHandler(IPersonRepository repository)
         {
             _repository = repository;
         }
 
-        public async Task<Guid> Handle(CreateProductCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(CreatePersonCommand request, CancellationToken cancellationToken)
         {
-            var product = new Product
+            var product = new Person
             {
                 Id = Guid.NewGuid(),
                 Name = request.Name,
-                Price = request.Price
+                Idade = request.Idade,
+                CepCode = request.CepCode,
+                Logradouro = request.Logradouro,
+                Complemento = request.Complemento,
+                Bairro = request.Bairro,
+                Localidade = request.Localidade,
+                Uf = request.Uf,
+                Estado = request.Estado,
+                Regiao = request.Regiao,
+                Ibge = request.Ibge,
+                Ddd = request.Ddd,
+                Siafi = request.Siafi
+
             };
 
             await _repository.AddAsync(product);

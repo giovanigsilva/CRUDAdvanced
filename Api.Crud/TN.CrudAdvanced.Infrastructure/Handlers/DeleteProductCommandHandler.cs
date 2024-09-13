@@ -9,16 +9,16 @@ using TN.CrudAdvanced.Infrastructure.Command;
 
 namespace TN.CrudAdvanced.Infrastructure.Handlers
 {
-   public class DeleteProductCommandHandler : IRequestHandler<DeleteProductCommand, Unit>
+   public class DeletePersonCommandHandler : IRequestHandler<DeletePersonCommand, Unit>
 {
-    private readonly IProductRepository _repository;
+    private readonly IPersonRepository _repository;
 
-    public DeleteProductCommandHandler(IProductRepository repository)
+    public DeletePersonCommandHandler(IPersonRepository repository)
     {
         _repository = repository;
     }
 
-    public async Task<Unit> Handle(DeleteProductCommand request, CancellationToken cancellationToken)
+    public async Task<Unit> Handle(DeletePersonCommand request, CancellationToken cancellationToken)
     {
         await _repository.DeleteAsync(request.Id);
         return Unit.Value; 

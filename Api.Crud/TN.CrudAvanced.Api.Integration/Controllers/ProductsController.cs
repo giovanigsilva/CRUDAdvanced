@@ -12,12 +12,12 @@ namespace TN.CrudAvanced.Api.Integration.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ProductsController : ControllerBase
+    public class PersonsController : ControllerBase
     {
         private readonly IMediator _mediator;
         private readonly TelemetryClient _telemetryClient;
 
-        public ProductsController(IMediator mediator, TelemetryClient telemetryClient)
+        public PersonsController(IMediator mediator, TelemetryClient telemetryClient)
         {
             _mediator = mediator;
             _telemetryClient = telemetryClient;
@@ -28,7 +28,7 @@ namespace TN.CrudAvanced.Api.Integration.Controllers
         {
             try
             {
-                var products = await _mediator.Send(new GetAllProductsQuery());
+                var products = await _mediator.Send(new GetAllPersonsQuery());
                 return Ok(products);
             }
             catch (Exception ex)
@@ -44,7 +44,7 @@ namespace TN.CrudAvanced.Api.Integration.Controllers
         {
             try
             {
-                var product = await _mediator.Send(new GetProductByIdQuery { Id = id });
+                var product = await _mediator.Send(new GetPersonByIdQuery { Id = id });
                 if (product == null)
                     return NotFound();
 
@@ -59,11 +59,11 @@ namespace TN.CrudAvanced.Api.Integration.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Create(CreateProductCommand command)
+        public async Task<IActionResult> Create(CreatePersonCommand command)
         {
             try
             {
-                var createValidator = new CreateProductCommandValidator();
+                var createValidator = new CreatePersonCommandValidator();
                 ValidationResult createResult = createValidator.Validate(command);
 
                 if (!createResult.IsValid)
@@ -73,7 +73,7 @@ namespace TN.CrudAvanced.Api.Integration.Controllers
 
                 var productId = await _mediator.Send(command);
 
-                return CreatedAtAction(nameof(GetById), new { id = productId }, new { Message = "Product successfully created.", ProductId = productId });
+                return CreatedAtAction(nameof(GetById), new { id = productId }, new { Message = "Person successfully created.", PersonId = productId });
             }
             catch (Exception ex)
             {
@@ -85,13 +85,13 @@ namespace TN.CrudAvanced.Api.Integration.Controllers
 
 
         [HttpPut("{id}")]
-        public async Task<IActionResult> Update(Guid id, UpdateProductCommand command)
+        public async Task<IActionResult> Update(Guid id, UpdatePersonCommand command)
         {
             try
             {
                 command.Id = id;
 
-                var updateValidator = new UpdateProductCommandValidator();
+                var updateValidator = new UpdatePersonCommandValidator();
                 ValidationResult updateResult = updateValidator.Validate(command);
 
                 if (!updateResult.IsValid)
@@ -115,7 +115,7 @@ namespace TN.CrudAvanced.Api.Integration.Controllers
         {
             try
             {
-                await _mediator.Send(new DeleteProductCommand { Id = id });
+                await _mediator.Send(new DeletePersonCommand { Id = id });
                 return NoContent();
             }
             catch (Exception ex)

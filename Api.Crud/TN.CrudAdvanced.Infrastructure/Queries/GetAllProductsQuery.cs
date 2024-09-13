@@ -9,7 +9,7 @@ using TN.CrudAdvanced.Domain.Interfaces.Repositories;
 
 namespace TN.CrudAdvanced.Infrastructure.Queries
 {
-    public class GetAllProductsQuery : IRequest<IEnumerable<Product>>
+    public class GetAllPersonsQuery : IRequest<IEnumerable<Person>>
     {
     }
 }

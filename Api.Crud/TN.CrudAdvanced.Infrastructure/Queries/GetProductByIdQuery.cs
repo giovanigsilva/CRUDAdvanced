@@ -8,7 +8,7 @@ using TN.CrudAdvanced.Domain.Entities;
 
 namespace TN.CrudAdvanced.Infrastructure.Queries
 {
-    public class GetProductByIdQuery : IRequest<Product>
+    public class GetPersonByIdQuery : IRequest<Person>
     {
         public Guid Id { get; set; }
     }

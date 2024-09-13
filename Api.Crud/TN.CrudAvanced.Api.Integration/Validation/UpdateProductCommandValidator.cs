@@ -3,11 +3,11 @@ using TN.CrudAdvanced.Infrastructure.Command;
 
 namespace TN.CrudAvanced.Api.Integration.Validation
 {
-    public class UpdateProductCommandValidator : AbstractValidator<UpdateProductCommand>
+    public class UpdatePersonCommandValidator : AbstractValidator<UpdatePersonCommand>
     {
-        public UpdateProductCommandValidator()
+        public UpdatePersonCommandValidator()
         {
-            RuleFor(x => x.Price)
+            RuleFor(x => x.Idade)
                 .GreaterThan(0).WithMessage("The product price must be greater than zero.");
 
             RuleFor(x => x.Name)

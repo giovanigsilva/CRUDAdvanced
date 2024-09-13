@@ -5,14 +5,14 @@ namespace TN.CrudAvanced.Api.Integration.Validation
 {
     using FluentValidation;
 
-    public class CreateProductCommandValidator : AbstractValidator<CreateProductCommand>
+    public class CreatePersonCommandValidator : AbstractValidator<CreatePersonCommand>
     {
-        public CreateProductCommandValidator()
+        public CreatePersonCommandValidator()
         {
             RuleFor(x => x.Name)
-                .NotEmpty().WithMessage("Product name must not be empty.");
+                .NotEmpty().WithMessage("Person name must not be empty.");
 
-            RuleFor(x => x.Price)
+            RuleFor(x => x.Idade)
                 .GreaterThan(0).WithMessage("The product price must be greater than zero.");
         }
     }
