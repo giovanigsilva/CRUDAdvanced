@@ -10,7 +10,7 @@ namespace TN.CrudAdvanced.Infrastructure.Command
     public class UpdateProductCommand : IRequest<Unit>
     {
         public Guid Id { get; set; }
-        public string Name { get; set; }
+        public string? Name { get; set; }
         public decimal Price { get; set; }
     }
 
